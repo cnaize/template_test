@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"path/filepath"
 	"text/template"
 )
 
@@ -17,7 +18,7 @@ func main() {
 		fmt.Printf("Error: %v", err)
 		return
 	}
-	template_path := root_path + "/templates/" + "test"
+	template_path := filepath.Join(filepath.Dir(root_path), "templates", "test")
 	text_path := template_path + ".txt"
 
 	fmt.Printf("Is file exists: %v\n", exist(text_path))
